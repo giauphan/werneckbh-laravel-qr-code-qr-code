@@ -45,6 +45,10 @@ class Person implements VCardItem
     /**
      * @var string
      */
+    private $URL;
+    /**
+     * @var string
+     */
 
     protected $company;
 
@@ -58,7 +62,7 @@ class Person implements VCardItem
      * @param string $orgTitle
      * @param string $company
      */
-    public function __construct(string $firstName, string $lastName, string $title = '', string $email, string $company = '', string $org = '', string $orgTitle = '')
+    public function __construct(string $firstName, string $lastName, string $title = null, string $email, string $company = null, string $org = null, string $orgTitle = null)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
@@ -104,7 +108,7 @@ class Person implements VCardItem
 
         return $response;
     }
-    public function setJob(string $job)
+    public function setJob(string $job = null)
     {
         $this->job = $job;
     }
@@ -117,6 +121,20 @@ class Person implements VCardItem
     public function getFormattedJob(): string
     {
         return "TITLE:{$this->job}\n";
+    }
+    public function setURL(string $URL = null)
+    {
+        $this->URL = $URL;
+    }
+
+    public function getURL(): string
+    {
+        return $this->URL;
+    }
+
+    public function getFormattedURL(): string
+    {
+        return "URL:{$this->URL}\n";
     }
     /**
      * Gets vCard Item Text

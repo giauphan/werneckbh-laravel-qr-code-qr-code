@@ -87,7 +87,7 @@ class QR_VCard extends AbstractGenerator implements CodeType
      */
     public function getCodeString () : string
     {
-        $response = "BEGIN:VCARD\nVERSION:3.0\n";
+        $response = "BEGIN:VCARD\nVERSION:4.0\n";
         $response .= (string) $this->person; // name 
         $response .= "{$this->person->getCompany()}"; // company
         foreach ($this->phones as $phone) {
@@ -100,6 +100,7 @@ class QR_VCard extends AbstractGenerator implements CodeType
 
         $response .= "{$this->person->getEmailStr()}"; // email
         $response .= $this->person->getFormattedJob();  // job
+        $response .= $this->person->getFormattedURL();  // URL
         $response .= $this->rev; // date
 
         $response .= "END:VCARD";

@@ -27,6 +27,10 @@ abstract class AbstractGenerator
      * @var string
      */
     protected $errorCorrectionLevel = 'L';
+     /**
+     * @var string
+     */
+    protected $Text = 'Scan me';
     /**
      * @var int
      */
@@ -118,6 +122,15 @@ abstract class AbstractGenerator
     public function setForeColor (int $foreColor) : AbstractGenerator
     {
         $this->foreColor = $foreColor;
+        return $this;
+    }
+     /**
+     * @param string $Text
+     * @return AbstractGenerator
+     */
+    public function setText (string $Text) : AbstractGenerator
+    {
+        $this->Text = $Text;
         return $this;
     }
 

@@ -159,6 +159,7 @@ class QRCodeFactory
      * @param string $email
      * @param string $company
      * @param string $job
+     * @param string $url
      * @param array  $addresses
      * @param array  $phones
      * 
@@ -166,14 +167,16 @@ class QRCodeFactory
      * @throws \QR_Code\Exceptions\InvalidVCardAddressEntryException
      * @throws \QR_Code\Exceptions\InvalidVCardPhoneEntryException
      */
-    public function vCard(string $firstName, string $lastName, string $title, string $email, string $company, $job, array $addresses, array $phones): QR_VCard
+    public function vCard(string $firstName, string $lastName, string $title = null, string $email, string $company = null,string $job = null,string $url = null, array $addresses = [], array $phones = []): QR_VCard
     {
-        $this->validateVCardAddresses($addresses);
-        $this->validatePrefAddresses($addresses);
+        // $this->validateVCardAddresses($addresses);
+        // $this->validatePrefAddresses($addresses);
         $this->validateVCardPhones($phones);
 
         $person = new Person($firstName, $lastName, $title, $email, $company);
+        $person->setURL($url);
         $person->setJob($job);
+
         $addressesArray = [];
         foreach ($addresses as $address) {
             $addressesArray[] = new Address(
@@ -194,7 +197,6 @@ class QRCodeFactory
 
         return new QR_VCard($person, $phonesArray, $addressesArray);
     }
-
     /**
      * Returns a QR_WiFi object
      *

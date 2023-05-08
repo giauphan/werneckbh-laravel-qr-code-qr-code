@@ -26,6 +26,7 @@ class Encoder
     public $version   = 0;
     public $size      = 3;
     public $margin    = 4;
+    public $text    = '';
     public $backColor = QR_WHITE;
     public $foreColor = QR_BLACK;
     public $cmyk      = false;
@@ -41,16 +42,19 @@ class Encoder
      * @param int        $margin
      * @param int        $backColor
      * @param int        $foreColor
+         * @param string        $text
      * @param bool       $cmyk
      * @return \QR_Code\Encoder\Encoder
      */
-    public static function factory ($level = QR_ECLEVEL_L, int $size = 3, int $margin = 4, int $backColor = QR_WHITE, int $foreColor = QR_BLACK, bool $cmyk = false) : Encoder
+    public static function factory ($level = QR_ECLEVEL_L, int $size = 3, int $margin = 4, int $backColor = QR_WHITE, int $foreColor = QR_BLACK,string $text = '', bool $cmyk = false) : Encoder
     {
         $enc = new self();
         $enc->size = $size;
+        $enc->text = $text;
         $enc->margin = $margin;
         $enc->foreColor = $foreColor;
         $enc->backColor = $backColor;
+        
         $enc->cmyk = $cmyk;
 
         switch ($level . '') {

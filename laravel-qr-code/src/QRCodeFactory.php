@@ -133,19 +133,19 @@ class QRCodeFactory
      * @throws \LaravelQRCode\Exceptions\EmptyTextException
      * @throws \LaravelQRCode\Exceptions\MalformedUrlException
      */
-    public function url(string $url): QR_Url
+    public function url(string $url = null): QR_Url
     {
-        if (trim($url) === '') {
-            throw new EmptyTextException('Url cannot be empty');
-        }
+        // if (trim($url) === '') {
+        //     throw new EmptyTextException('Url cannot be empty');
+        // }
 
-        if (startsWith($url, 'http://')) {
-            throw new MalformedUrlException('Url cannot start with http://');
-        }
+        // if (startsWith($url, 'http://')) {
+        //     throw new MalformedUrlException('Url cannot start with http://');
+        // }
 
-        if (startswith($url, 'https://')) {
-            throw new MalformedUrlException('Url cannot start with https://');
-        }
+        // if (startswith($url, 'https://')) {
+        //     throw new MalformedUrlException('Url cannot start with https://');
+        // }
 
         return new QR_Url($url);
     }
@@ -167,7 +167,7 @@ class QRCodeFactory
      * @throws \QR_Code\Exceptions\InvalidVCardAddressEntryException
      * @throws \QR_Code\Exceptions\InvalidVCardPhoneEntryException
      */
-    public function vCard(string $firstName, string $lastName, string $title = null, string $email, string $company = null,string $job = null,string $url = null, array $addresses = [], array $phones = []): QR_VCard
+    public function vCard(string $firstName  = null, string $lastName  = null, string $title = null, string $email = null, string $company = null,string $job = null,string $url = null, array $addresses = null, array $phones = null): QR_VCard
     {
         // $this->validateVCardAddresses($addresses);
         // $this->validatePrefAddresses($addresses);

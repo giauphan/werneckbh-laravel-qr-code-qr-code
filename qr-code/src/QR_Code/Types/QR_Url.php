@@ -22,7 +22,7 @@ class QR_Url extends AbstractGenerator implements CodeType
      *
      * @param string $url
      */
-    public function __construct (string $url)
+    public function __construct (string $url = null)
     {
         $this->url = $url;
     }

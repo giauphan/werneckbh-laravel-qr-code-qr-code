@@ -62,7 +62,7 @@ class Person implements VCardItem
      * @param string $orgTitle
      * @param string $company
      */
-    public function __construct(string $firstName, string $lastName, string $title = null, string $email, string $company = null, string $org = null, string $orgTitle = null)
+    public function __construct(string $firstName  = null, string $lastName = null, string $title = null, string $email = null, string $company = null, string $org = null, string $orgTitle = null)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;

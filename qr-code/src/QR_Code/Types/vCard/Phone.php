@@ -33,7 +33,7 @@ class Phone implements VCardItem
      * @param string $number
      * @param bool   $cellphone
      */
-    public function __construct (string $type, string $number, bool $cellphone = false)
+    public function __construct (string $type = null, string $number = null, bool $cellphone = false)
     {
         $this->type = $type;
         $this->number = $number;

@@ -53,7 +53,7 @@ class Address implements VCardItem
      * @param string $zip
      * @param string $country
      */
-    public function __construct (string $type, bool $pref = true, string $street, string $city, string $state, string $zip, string $country)
+    public function __construct (string $type = null, bool $pref = true, string $street = null, string $city = null, string $state = null, string $zip = null, string $country = null)
     {
         $this->type = $type;
         $this->pref = $pref;
